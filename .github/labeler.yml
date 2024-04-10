@@ -1,0 +1,38 @@
+docs:
+  - '*.md'
+
+package:
+  - 'package.json'
+  - 'package-lock.json'
+
+test:
+  - 'src/test/**/*.ts'
+
+source:
+  - 'src/**'
+  - '!src/docs/**'
+
+backend:
+  - 'src/**/*.ts'
+
+application:
+  - 'src/application/**/*.ts'
+
+domain:
+  - 'src/domain/**/*.ts'
+
+enums:
+  - 'src/enums/**/*.ts'
+
+infrastructure:
+  - 'src/infrastructure/**/*.ts'
+  - '.github/**/*.yml'
+
+interfaces:
+  - 'src/interfaces/**/*.ts'
+
+repositories:
+  - 'src/repositories/**/*.ts'
+
+utils:
+  - 'src/utils/**/*.ts'
