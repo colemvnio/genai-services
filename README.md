@@ -82,6 +82,12 @@ tbd
 
 ```plaintext
 /project-root
+  /terraform                   # Terraform configurations for your infrastructure
+    /modules                   # Reusable Terraform modules
+    /environments              # Environment-specific configurations
+      /prod                    # Production environment configurations
+      /staging                 # Staging environment configurations
+      /dev                     # Development environment configurations
   /api-gateway
     - serverless.yml          # Configures the AWS API Gateway, defining endpoints and integrating them with specific Lambda functions.
   /bedrockService             # A dedicated directory for the Bedrock service microservice.
@@ -110,7 +116,8 @@ tbd
     - dev.json                # Configuration settings for the development environment, like database connections or external API keys.
     - prod.json               # Similar to dev.json, but for production settings.
   /scripts
-    - (Scripts not detailed, but include automation for deployment, database migrations, etc.)
+    - deploy.sh                # Deployment scripts for CI/CD pipelines
+    - test.sh                  # Scripts to run tests
   - README.md                  # Project documentation, explaining the architecture, setup, deployment, and contribution guidelines.
   - package.json               # Root-level package.json for managing scripts and dependencies that apply to the whole project.
   - pnpm-workspace.yaml        # Configuration for pnpm workspaces, enabling efficient dependency management across microservices.
