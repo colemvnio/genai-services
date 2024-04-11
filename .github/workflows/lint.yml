@@ -1,4 +1,4 @@
-name: Lint
+name: Conditional Linting on Changes
 
 on:
   pull_request:
@@ -6,6 +6,8 @@ on:
       - develop
       - staging
       - master
+    paths:
+      - 'services/**'
 
 env:
   NODE_VERSION: 20.5.1
@@ -14,6 +16,8 @@ jobs:
   linting:
     name: Linting
     runs-on: ubuntu-latest
+    outputs:
+      service-changes: ${{ steps.filter.outputs.services }}
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
@@ -49,5 +53,14 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Determine Changed Services
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            services:
+              - 'services/**'
+
       - name: Code Linting
-        run: pnpm run lint
+        if: steps.filter.outputs.services == 'true'
+        run: pnpm --filter './services/*' lint

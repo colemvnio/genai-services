@@ -1,0 +1,17 @@
+{
+  "name": "application-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -b tsconfig.json",
+    "lint": "eslint 'src/**/*.ts' --ext .ts",
+    "lint-fix": "eslint 'src/**/*.ts' --ext .ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}

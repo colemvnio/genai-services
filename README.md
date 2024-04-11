@@ -7,18 +7,31 @@
 ## 📖 Table of Contents
 
 - [🌟 Features](#-features)
+- [🏗️ Monorepo Structure](#-monorepo-structure)
 - [📋 Prerequisites](#-prerequisites)
 - [🚀 Setup & Installation](#-setup--installation)
     - [🔗 Clone the Repository](#1--clone-the-repository)
     - [📦 Install Dependencies](#2--install-dependencies)
     - [🛠️ Environment Configuration](#3--environment-configuration)
 - [🔧 Usage](#-usage)
+  - [Building Services](#building-services)
+  - [Linting Services](#linting-services)
+  - [Running Tests](#running-tests)
 - [🧪 Testing](#-testing)
 - [📜 Authors](#-authors)
 
 ## 🌟 Features
 
 - (tbd)
+
+## 🏗️ Monorepo Structure
+This project adopts a monorepo approach, meaning multiple related services are housed within a single repository. This setup allows for shared configurations, dependencies, and tooling across all microservices, providing a cohesive development experience.
+
+A monorepo facilitates:
+
+- Single-point dependency management using PNPM workspaces.
+- Shared linting, building, and testing configurations for consistency.
+- Streamlined CI/CD pipelines with service-specific and global configuration options.
 
 
 ## 📋 Prerequisites
@@ -69,13 +82,50 @@ tbd
 
 ## 🔧 Usage
 
-tbd
+This monorepo contains scripts configured for ease of use across all services:
+
+> To filter by a service, use `pnpm --filter<service-name> <command>`.
+
+### Building Services
+
+To build all services, run:
+
+```bash
+$ pnpm run build
+```
+
+This command triggers the TypeScript compiler for each service and outputs the transpiled code to the respective `dist` directories.
+
+### Linting Services
+
+To lint all services, use:
+
+```bash
+$ pnpm run lint
+```
+
+For automated lint fixes:
+
+```bash
+$ pnpm run lint-fix
+```
+
+### Running Tests
+
+To execute tests across all services, run:
+
+```bash
+$ pnpm run test
+```
 
 ## 🧪 Testing
 
-To run tests, use the following command:
+Each microservice includes its own tests. To run tests for a specific service, navigate to the service's directory and use the test script:
 
-tbd
+```bash
+$ cd services/applicationService
+$ pnpm run test
+```
 
 ## 📁 Project Structure
 ![Project Structure](assets/genai-services-diagram.png)

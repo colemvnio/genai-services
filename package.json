@@ -1,12 +1,14 @@
 {
   "name": "genai-services",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .ts",
-    "lint-fix": "eslint . --ext .ts --fix"
+    "build": "pnpm --filter='./services/*' run build",
+    "lint": "pnpm --filter='./services/*' run lint",
+    "lint-fix": "pnpm --filter='./services/*' run lint-fix",
+    "test": "pnpm --filter='./services/*' run test"
   },
   "keywords": [],
   "author": "",
