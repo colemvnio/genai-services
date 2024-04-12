@@ -36,3 +36,9 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
+/terraform/environments/*/.terraform.lock.hcl
+/services/applicationService/dist.zip
+/services/*/dist
+/terraform/environments/*/.terraform/modules/modules.json
+/terraform/environments/*/.terraform/terraform.tfstate
+/terraform/environments/*/.terraform/providers/registry.terraform.io/hashicorp/aws/5.45.0/darwin_amd64/terraform-provider-aws_v5.45.0_x5
