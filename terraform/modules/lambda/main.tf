@@ -4,6 +4,11 @@ resource "aws_lambda_function" "webhook_receiver" {
   role             = aws_iam_role.lambda_role.arn
   handler          = "index.handler"
   runtime          = "nodejs20.x"
+  filename = "${path.module}/../../../services/applicationService/dist.zip"
+  tags        = {
+    Environment = var.environment
+    Project     = "genAiService"
+  }
 }
 
 resource "aws_iam_role" "lambda_role" {
